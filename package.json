@@ -32,9 +32,12 @@
     "@ledgerhq/hw-transport-webhid": "5.48.0",
     "@ledgerhq/hw-transport-webusb": "5.48.0",
     "bn.js": "5.1.1",
+    "encoding": "^0.1.13",
     "ethjs-unit": "0.1.6",
     "isomorphic-webcrypto": "2.3.8",
     "node-fetch": "2.6.7",
+    "ton-core": "^0.51.0",
+    "ton-crypto": "^3.2.0",
     "tweetnacl": "1.0.3"
   },
   "devDependencies": {
