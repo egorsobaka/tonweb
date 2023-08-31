@@ -16,6 +16,7 @@ export interface NftSaleMethods extends ContractMethods {
 }
 export interface NftSaleData {
   marketplaceAddress?: Address;
+  marketplaceFeeAddress?: Address;
   nftAddress?: Address;
   nftOwnerAddress?: Address;
   fullPrice: any;
