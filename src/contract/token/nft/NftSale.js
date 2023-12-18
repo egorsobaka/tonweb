@@ -49,14 +49,34 @@ class NftSale extends Contract {
       myAddress.toString(),
       "get_sale_data"
     );
-    const marketplaceAddress = parseAddress(result[3]);
-    const nftAddress = parseAddress(result[4]);
-    const nftOwnerAddress = parseAddress(result[5]);
-    const fullPrice = result[6];
-    const marketplaceFeeAddress = parseAddress(result[7]);
-    const marketplaceFee = result[8];
-    const royaltyAddress = parseAddress(result[9]);
-    const royaltyFee = result[10];
+    let marketplaceAddress = null;
+    let nftAddress = null;
+    let nftOwnerAddress = null;
+    let fullPrice = null;
+    let marketplaceFeeAddress = null;
+    let marketplaceFee = null;
+    let royaltyAddress = null;
+    let royaltyFee = null;
+    if (result.length === 7) {
+      marketplaceAddress = parseAddress(result[0]);
+      nftAddress = parseAddress(result[1]);
+      nftOwnerAddress = parseAddress(result[2]);
+      fullPrice = result[3];
+      marketplaceFee = result[4];
+      royaltyAddress = parseAddress(result[5]);
+      royaltyFee = result[6];
+    } else if (result.length === 11) {
+      marketplaceAddress = parseAddress(result[3]);
+      nftAddress = parseAddress(result[4]);
+      nftOwnerAddress = parseAddress(result[5]);
+      fullPrice = result[6];
+      marketplaceFeeAddress = parseAddress(result[7]);
+      marketplaceFee = result[8];
+      royaltyAddress = parseAddress(result[9]);
+      royaltyFee = result[10];
+    } else {
+      throw new Error(`Incorrect sale info length ${result.length}`);
+    }
 
     return {
       marketplaceAddress,
