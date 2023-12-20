@@ -23,6 +23,7 @@ export interface NftSaleData {
   marketplaceFee: any;
   royaltyAddress?: Address;
   royaltyFee: any;
+  isAuction?: boolean;
 }
 export interface CreateCancelBodyParams {
   queryId?: number;
