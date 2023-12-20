@@ -57,6 +57,8 @@ class NftSale extends Contract {
     let marketplaceFee = null;
     let royaltyAddress = null;
     let royaltyFee = null;
+    let isAuction = false;
+    console.log(result.length);
     if (result.length === 7) {
       marketplaceAddress = parseAddress(result[0]);
       nftAddress = parseAddress(result[1]);
@@ -74,6 +76,8 @@ class NftSale extends Contract {
       marketplaceFee = result[8];
       royaltyAddress = parseAddress(result[9]);
       royaltyFee = result[10];
+    } else if(result.length === 20) {
+      isAuction = true;
     } else {
       throw new Error(`Incorrect sale info length ${result.length}`);
     }
@@ -87,6 +91,7 @@ class NftSale extends Contract {
       marketplaceFee,
       royaltyAddress,
       royaltyFee,
+      isAuction
     };
   }
 
