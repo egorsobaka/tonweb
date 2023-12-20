@@ -58,7 +58,6 @@ class NftSale extends Contract {
     let royaltyAddress = null;
     let royaltyFee = null;
     let isAuction = false;
-    console.log(result.length);
     if (result.length === 7) {
       marketplaceAddress = parseAddress(result[0]);
       nftAddress = parseAddress(result[1]);
